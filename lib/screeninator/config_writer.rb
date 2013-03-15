@@ -47,6 +47,7 @@ module Screeninator
       @escape       = yaml["escape"]
       @project_name = yaml["project_name"]
       @project_root = yaml["project_root"]
+      @default_config = yaml["default_config"]
       @tabs         = []
 
       yaml["tabs"].each do |tab|

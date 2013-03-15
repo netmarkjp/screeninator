@@ -54,6 +54,38 @@ If a tab contains multiple commands, they will be 'joined' together with '&&'.
 If you want to have your own default config, place it into $HOME/.screeninator/default.yml
 
 
+If you want to change screeninator default .screen configuration(below), use default_config block in project_name.yaml
+
+screeninator default config
+
+    startup_message off
+    vbell off
+    autodetach on
+    defscrollback 10000
+    hardstatus alwayslastline
+    hardstatus string '%{= kg}[ %{G} <%= @project_name %> %{g}][%= %{= kw}%?%-Lw%?%{r} (%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m/%d %{W}%c %{g}]'
+
+default config override example
+
+    default_config: |
+      startup_message off
+      vbell off
+      autodetach on
+      defscrollback 50000
+      hardstatus off
+      caption always "%{= wb} %-w%{=bu bw}%n %t %{-}%+w"
+    escape: ``
+    project_name: Screeninator
+    project_root: ~/code/rails_project
+    tabs:
+      - shell: git pull
+      - database: rails db
+      - console: rails c
+      - logs: 
+        - cd logs
+        - tail -f development.log
+      - ssh: ssh me@myhost
+
 Starting a project
 ------------------
 
